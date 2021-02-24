@@ -6,3 +6,7 @@ gem 'pry'
 gem 'fast_jsonapi'
 gem 'faraday'
 gem 'puma'
+
+gem 'figaro'
+
+gem 'rack-test'
