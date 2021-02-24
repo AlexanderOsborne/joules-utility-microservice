@@ -1,8 +1,36 @@
-class UtilitiesService < Sinatra::Base
+require 'sinatra'
 
-  def usage(meter_id)
-    response = Faraday.new("https://utilityapi.com/api/v2/bills?meters=#{meter_id}") do |conn|
-    conn.token_auth('authentication-token')
+class UtilitiesService < Sinatra::Base
+  def new_user
+    # call all 7 below it
+  end
+
+  def existing_user
+    # only calls a few of them
+  end
+  
+  def post_form(auth_param)
+    require pry; binding.pry
+  end
+
+  def post_auth
+
+  end
+
+  def get_auth_and_meters
+
+  end
+
+  def post_activate_meters
+
+  end
+
+  def get_poll_meter
+
+  end
+
+  def get_bills
+
   end
 end
 
