@@ -11,9 +11,9 @@ class NewUserRequestTest < Test::Unit::TestCase
     Sinatra::Application
   end
 
-  # def test_new_user
-  #   data = UtilitiesService.get_new_user
-  # end
+  def test_it_gets_new_user
+    data = UtilitiesService.get_new_user
+  end
 
   def test_it_gets_form
     data = UtilitiesService.post_form
