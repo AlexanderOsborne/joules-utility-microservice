@@ -27,11 +27,16 @@ class UtilitiesService
       req.headers['Authorization'] = "Bearer #{auth_param}"
       req.body = {"utility": "DEMO", "scenario": "residential"}.to_json
     end
-      require 'pry'; binding.pry
   end
 
   def get_auth_and_meters(auth_param)
-
+    conn = Faraday.new(:url => 'https://utilityapi.com')
+    
+    response = conn.get do |req|
+      req.url "/api/v2/authorizations?referrals=#{ENV['REFERRAL']}&include=meters"
+      req.headers['Authorization'] = "Bearer #{auth_param}"
+    end
+      require 'pry'; binding.pry
   end
 
   def post_activate_meters(auth_param)
