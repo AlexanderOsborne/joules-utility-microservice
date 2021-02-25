@@ -1,7 +1,5 @@
 require 'sinatra'
 require 'faraday'
-require 'net/http'
-require 'uri'
 
 class UtilitiesService 
   def new_user
