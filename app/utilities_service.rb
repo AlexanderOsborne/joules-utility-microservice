@@ -11,10 +11,10 @@ class UtilitiesService
   end
   
   def post_form(auth_param)
-    conn = Faraday.new(:url => 'https://utilityapi.com/api/v2')
+    conn = Faraday.new(:url => 'https://utilityapi.com')
     
     response = conn.post do |req|
-      req.url '/forms'
+      req.url '/api/v2/forms'
       req['Authorization'] = "Bearer #{auth_param}"
     end
       require 'pry'; binding.pry
