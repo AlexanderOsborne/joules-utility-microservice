@@ -47,7 +47,11 @@ class UtilitiesService
   end
 
   def get_poll_meter(auth_param)
-
+    response = @conn.get do |req|
+      req.url "/api/v2/meters/historical-collection/#{ENV['METER_UID']}"
+      #Meter Uid's is not an array here - Meter UID is hardcoded in the url above
+    end
+    require 'pry'; binding.pry
   end
 
   def get_bills(auth_param)
