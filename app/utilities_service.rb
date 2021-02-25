@@ -1,4 +1,7 @@
 require 'sinatra'
+require 'faraday'
+require 'net/http'
+require 'uri'
 
 class UtilitiesService 
   def new_user
@@ -12,9 +15,9 @@ class UtilitiesService
   def post_form(auth_param)
     conn = Faraday.new(:url => 'https://utilityapi.com/api/v2')
     
-    conn.post do |req|
+    response = conn.post do |req|
       req.url '/forms'
-      req.headers['Authorization'] = "Bearer  + #{auth_param}"
+      req['Authorization'] = "Bearer #{auth_param}"
     end
       require 'pry'; binding.pry
   end
