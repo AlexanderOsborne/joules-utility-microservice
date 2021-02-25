@@ -11,46 +11,43 @@ class NewUserRequestTest < Test::Unit::TestCase
     Sinatra::Application
   end
 
+  # def test_new_user
+  #   data = UtilitiesService.get_new_user
+  # end
+
   def test_it_gets_form
-    service = UtilitiesService.new
-    auth_param = ENV['UTILITY_API_KEY']
-    data = service.post_form(auth_param)
-    # require 'pry'; binding.pry
+    data = UtilitiesService.post_form
     # assert last_response.ok?
     # assert_equal 'Hello World', last_response.body
   end
 
   def test_it_authorizes
-    service = UtilitiesService.new
-    auth_param = ENV['UTILITY_API_KEY']
-    data = service.post_auth(auth_param)
+    data = UtilitiesService.post_auth
     # assert last_response.ok?
     # assert_equal 'Hello World', last_response.body
   end
 
   def test_auth_and_meters
-    service = UtilitiesService.new
-    auth_param = ENV['UTILITY_API_KEY']
-    data = service.get_auth_and_meters(auth_param)
+    data = UtilitiesService.get_auth_and_meters
     # require 'pry'; binding.pry
     # assert last_response.ok?
     # assert_equal 'Hello World', last_response.body
   end
 
   def test_activate_meters
-    service = UtilitiesService.new
-    auth_param = ENV['UTILITY_API_KEY']
-    data = service.post_activate_meters(auth_param)
+    data = UtilitiesService.post_activate_meters
     # assert last_response.ok?
     # assert_equal 'Hello World', last_response.body
   end
   
   def test_poll_meter
-    service = UtilitiesService.new
-    auth_param = ENV['UTILITY_API_KEY']
-    data = service.get_poll_meter(auth_param)
+    data = UtilitiesService.poll_meter
     # require 'pry'; binding.pry
     # assert last_response.ok?
     # assert_equal 'Hello World', last_response.body
+  end
+
+  def test_new_user
+    data = UtilitiesService.get_bills
   end
 end
