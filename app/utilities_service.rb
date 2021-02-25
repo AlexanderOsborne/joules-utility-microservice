@@ -2,6 +2,11 @@ require 'sinatra'
 require 'faraday'
 
 class UtilitiesService 
+
+  def initialize
+    @conn = Faraday.new(:url => 'https://utilityapi.com')
+  end
+
   def new_user
     # call all 7 below it
   end
@@ -11,18 +16,14 @@ class UtilitiesService
   end
   
   def post_form(auth_param)
-    conn = Faraday.new(:url => 'https://utilityapi.com')
-    
-    response = conn.post do |req|
+    response = @conn.post do |req|
       req.url '/api/v2/forms'
       req.headers['Authorization'] = "Bearer #{auth_param}"
     end
   end
 
   def post_auth(auth_param)
-    conn = Faraday.new(:url => 'https://utilityapi.com')
-    
-    response = conn.post do |req|
+    response = @conn.post do |req|
       req.url "/api/v2/forms/#{ENV['UTILITY_UID']}/test-submit"
       req.headers['Authorization'] = "Bearer #{auth_param}"
       req.body = {"utility": "DEMO", "scenario": "residential"}.to_json
@@ -30,13 +31,11 @@ class UtilitiesService
   end
 
   def get_auth_and_meters(auth_param)
-    conn = Faraday.new(:url => 'https://utilityapi.com')
-    
-    response = conn.get do |req|
+    response = @conn.get do |req|
       req.url "/api/v2/authorizations?referrals=#{ENV['REFERRAL']}&include=meters"
       req.headers['Authorization'] = "Bearer #{auth_param}"
     end
-      require 'pry'; binding.pry
+      # require 'pry'; binding.pry
   end
 
   def post_activate_meters(auth_param)
