@@ -15,28 +15,34 @@ class UtilitiesService
     
     response = conn.post do |req|
       req.url '/api/v2/forms'
-      req['Authorization'] = "Bearer #{auth_param}"
+      req.headers['Authorization'] = "Bearer #{auth_param}"
+    end
+  end
+
+  def post_auth(auth_param)
+    conn = Faraday.new(:url => 'https://utilityapi.com')
+    
+    response = conn.post do |req|
+      req.url "/api/v2/forms/#{ENV['UTILITY_UID']}/test-submit"
+      req.headers['Authorization'] = "Bearer #{auth_param}"
+      req.body = {"utility": "DEMO", "scenario": "residential"}.to_json
     end
       require 'pry'; binding.pry
   end
 
-  def post_auth
+  def get_auth_and_meters(auth_param)
 
   end
 
-  def get_auth_and_meters
+  def post_activate_meters(auth_param)
 
   end
 
-  def post_activate_meters
+  def get_poll_meter(auth_param)
 
   end
 
-  def get_poll_meter
-
-  end
-
-  def get_bills
+  def get_bills(auth_param)
 
   end
 end

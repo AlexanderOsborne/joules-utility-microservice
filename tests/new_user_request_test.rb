@@ -15,6 +15,14 @@ class NewUserRequestTest < Test::Unit::TestCase
     service = UtilitiesService.new
     auth_param = ENV['UTILITY_API_KEY']
     data = service.post_form(auth_param)
+    # assert last_response.ok?
+    # assert_equal 'Hello World', last_response.body
+  end
+
+  def test_it_authorizes
+    service = UtilitiesService.new
+    auth_param = ENV['UTILITY_API_KEY']
+    data = service.post_auth(auth_param)
     # require 'pry'; binding.pry
     assert last_response.ok?
     assert_equal 'Hello World', last_response.body
