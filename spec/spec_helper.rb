@@ -1,6 +1,16 @@
 
 ENV['RACK_ENV'] = 'test'
 require "./config/environment"
+require 'simplecov'
+SimpleCov.start
+
+require 'capybara/dsl'
+Capybara.app = SetList
+Capybara.save_path = 'tmp/capybara'
+
+# within the RSpec configuration (this is the same place you have your database cleaner options set):
+
+  c.include Capybara::DSL
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.before(:each) do

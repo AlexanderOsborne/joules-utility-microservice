@@ -1,16 +1,17 @@
-require 'sinatra'
-require 'faraday'
+# require 'sinatra'
+# require 'faraday'
+require 'figaro'
+require './app/poros/utility'
 
 class UtilitiesService 
-  def self.conn
-    @@conn ||= Faraday.new(:url => 'https://utilityapi.com') do |req|
-      req.headers['Authorization'] = "Bearer #{ENV['UTILITY_API_KEY']}"
-    end
+  def self.fetch_utilities
+    data = parser(conn.get("/api/v2/files/supported_utilities_json"))
+    utilities = data.map {|utility| Utility.new(utility)}
   end
 
   def self.get_new_user
-    uid = post_form
-    referral = post_auth(uid)
+    params = post_form
+    referral = post_auth(params[:uid], params[:utility])
     meters = get_auth_and_meters(referral)
     post_activate_meters(meters)
 
@@ -39,6 +40,12 @@ class UtilitiesService
   end
 
   private
+
+  def self.conn
+    @@conn ||= Faraday.new(:url => 'https://utilityapi.com') do |req|
+      req.headers['Authorization'] = "Bearer #{ENV['UTILITY_API_KEY']}"
+    end
+  end
   
   def self.post_form
     response = conn.post do |req|
@@ -46,15 +53,14 @@ class UtilitiesService
     end
 
     json = parser(response)
-    
     # json[:utility] needs to be passed to post_auth too
-    json[:uid]
+    {"uid" => json[:uid], "utility" => json[:utility]}
   end
 
-  def self.post_auth(uid)
+  def self.post_auth(uid, utility = "DEMO")
     response = conn.post do |req|
       req.url "/api/v2/forms/#{ uid }/test-submit"
-      req.body = {"utility": "DEMO", "scenario": "residential"}.to_json
+      req.body = {"utility": utility, "scenario": "residential"}.to_json
     end
 
     json = parser(response)
