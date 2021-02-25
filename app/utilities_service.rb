@@ -35,11 +35,15 @@ class UtilitiesService
       req.url "/api/v2/authorizations?referrals=#{ENV['REFERRAL']}&include=meters"
       req.headers['Authorization'] = "Bearer #{auth_param}"
     end
-      # require 'pry'; binding.pry
   end
 
   def post_activate_meters(auth_param)
-
+    response = @conn.post do |req|
+      req.url "/api/v2/meters/historical-collection"
+      req.headers['Authorization'] = "Bearer #{auth_param}"
+      req.body = {"meters": ["711267"]}.to_json 
+      #Meter Uid's must be intered as an array- this is just a hardcode
+    end
   end
 
   def get_poll_meter(auth_param)
