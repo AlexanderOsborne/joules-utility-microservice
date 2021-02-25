@@ -9,9 +9,13 @@ class UtilitiesService
   end
 
   def self.get_new_user
-    post_form
-    # this runs the method chain up to activate_meters
+    uid = post_form
+    referral = post_auth(uid)
+    meters = get_auth_and_meters(referral)
+    post_activate_meters(meters)
+
     # meter uid's are returned-- pass back to backend to be saved
+    meters
   end
 
   def self.activate_existing_user(meter_uids)
@@ -42,8 +46,9 @@ class UtilitiesService
     end
 
     json = parser(response)
-    # utility needs to be passed to post_auth too
-    post_auth(json[:uid])
+    
+    # json[:utility] needs to be passed to post_auth too
+    json[:uid]
   end
 
   def self.post_auth(uid)
@@ -53,7 +58,7 @@ class UtilitiesService
     end
 
     json = parser(response)
-    get_auth_and_meters(json[:referral])
+    json[:referral]
   end
 
   def self.get_auth_and_meters(ref)
@@ -62,41 +67,34 @@ class UtilitiesService
     end
 
     json = parser(response)
-    post_activate_meters(json[:authorizations][0][:meters][:meters])
+    json[:authorizations][0][:meters][:meters]
   end
 
   def self.post_activate_meters(meter_arr)
     response = conn.post do |req|
       req.url "/api/v2/meters/historical-collection"
       req.body = {"meters": meter_arr}.to_json 
-      # Hardcoded example:
-      # req.body = {"meters": ["711267"]}.to_json 
     end
-
-    json = parser(response)
 
     # After activation, meters need to be polled to check status of bills
-    # return meter uids to get_new_user method so uids can be polled
-    meter_arr
   end
   
-  def self.poll_meter
+  def self.poll_meter(meter_uid)
     response = conn.get do |req|
-      req.url "/api/v2/meters/#{ENV['METER_UID']}"
-      #Meter Uid's is not an array here - Meter UID is hardcoded in the url above
+      req.url "/api/v2/meters/#{meter_uid}"
     end
-    
+
     json = JSON.parse(response.body, symbolize_names: true)
-    
+
     {
-      status: json[:meters][0][:status], 
-      bill_count: json[:meters][0][:bill_count]
+      status: json[:status], 
+      bill_count: json[:bill_count]
     }
   end
   
-  def self.get_bills
+  def self.get_bills(meter_uid)
     response = conn.get do |req|
-      req.url "/api/v2/bills?meters=#{ENV['METER_UID']}"
+      req.url "/api/v2/bills?meters=#{meter_uid}"
     end
     
     json = JSON.parse(response.body, symbolize_names: true)
