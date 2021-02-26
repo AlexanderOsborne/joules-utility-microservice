@@ -1,8 +1,8 @@
+require 'rubygems'
+require 'sinatra'
 require 'bundler'
 require 'fast_jsonapi'
-require 'sinatra/base'
 require 'figaro'
-require 'rubygems'
 
 Bundler.require
 
@@ -16,6 +16,6 @@ require 'poros/bill'
 
 
 
-run ApplicationController
+run Sinatra::ApplicationController
 use UtilitiesController
 use BillsController
