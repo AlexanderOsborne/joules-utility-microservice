@@ -1,7 +1,4 @@
-# require 'sinatra'
-# require 'faraday'
-require 'figaro'
-require './app/poros/utility'
+
 
 class UtilitiesService 
   def self.fetch_utilities
