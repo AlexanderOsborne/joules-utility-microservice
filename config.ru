@@ -1,2 +1,8 @@
-require './hello'
-run Utility
+require 'bundler'
+
+Bundler.require
+require './config/enviroment'
+run UtilitiesController
+
+
+
