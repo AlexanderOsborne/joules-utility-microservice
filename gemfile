@@ -9,5 +9,8 @@ gem 'require_all'
 
 group :development, :test do
   gem 'pry'
+  gem 'rspec'
+  gem 'capybara'
+  gem 'launchy'
   gem 'figaro', git: 'https://github.com/bpaquet/figaro.git', branch: 'sinatra'
 end
