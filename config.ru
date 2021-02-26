@@ -1,7 +1,7 @@
 require 'bundler'
 
 Bundler.require
-require './config/enviroment'
+require './config/environment'
 run UtilitiesController
 
 
