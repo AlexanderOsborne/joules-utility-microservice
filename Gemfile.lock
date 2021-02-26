@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/bpaquet/figaro.git
+  revision: fd7566157252e7bb090bbef32e4e377091deb003
+  branch: sinatra
+  specs:
+    figaro (1.1.1)
+      thor (~> 0.14)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,8 +36,6 @@ GEM
     faraday-net_http (1.0.1)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
-    figaro (1.2.0)
-      thor (>= 0.14.0, < 2)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     launchy (2.5.0)
@@ -85,7 +91,7 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
-    thor (1.1.0)
+    thor (0.20.3)
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -100,7 +106,7 @@ DEPENDENCIES
   capybara
   faraday
   fast_jsonapi
-  figaro
+  figaro!
   launchy
   pry
   puma
