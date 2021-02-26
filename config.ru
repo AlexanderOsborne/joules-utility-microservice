@@ -10,9 +10,10 @@ require 'controllers/application_controller'
 require 'controllers/utilities_controller'
 require 'controllers/bills_controller'
 require 'services/utilities_service'
+require 'poros/bill'
 
 
 
-# run ApplicationController
-run UtilitiesController
+run ApplicationController
+use UtilitiesController
 use BillsController

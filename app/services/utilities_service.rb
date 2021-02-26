@@ -24,9 +24,11 @@ class UtilitiesService
   end
 
   # Bills take time to generate after meter activation, so backend should call this method to poll meters (check status)
-  def self.check_status(meter_uid)
-    result = poll_meter(meter_uid)
+  def self.check_status(params)
+    result = poll_meter(params[:meter_uid])
     if result[:status] == "updated" && result[:bill_count] > 0
+      bills = get_bills(params[:meter_uid])
+      bills[:bills].map{|bill| Bill.new(bill)}
       # call get_bills (should return usage data)
       # calculate total kwh for first bill
       # tell backend to send "completed" mailer to user
