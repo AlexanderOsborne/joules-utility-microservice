@@ -1,0 +1,30 @@
+// Expected serialized object to send to backend API for bills
+
+{
+  "user_uid": "utilityapi_uid",
+  "meter_uid": "8675309"
+  "data": [
+    {
+      "bill_uid": "1",
+      "type": "bill"
+      "attributes": {
+        "readings": {
+          "start": "2015-02-19T23:00:00.000000-08:00", 
+          "end": "2015-02-20T00:00:00.000000-08:00", 
+          "kwh": "123456"
+        }
+      }
+    }
+  ]
+}
+
+// Expected serialized object to send to backend API for utilities
+
+{
+  "data": [
+    {
+      "id": "utitily abbr/id",
+      "name": "utility name"
+    }
+  ]
+}

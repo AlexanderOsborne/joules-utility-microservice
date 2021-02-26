@@ -7,4 +7,14 @@ gem 'fast_jsonapi'
 gem 'faraday'
 gem 'puma'
 gem 'figaro'
-gem 'rack-test'
+
+group :test do
+  gem "rspec"
+  gem "rack-test"
+end
+
+group :development, :test do
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov'
+end
