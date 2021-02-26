@@ -2,6 +2,7 @@ require 'bundler'
 require 'fast_jsonapi'
 require 'sinatra/base'
 require 'figaro'
+require 'rubygems'
 
 Bundler.require
 
