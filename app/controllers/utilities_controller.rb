@@ -1,4 +1,5 @@
 require './app/services/utilities_service'
+
 class UtilitiesController < ApplicationController
   set :root, File.expand_path("..", __dir__)
 

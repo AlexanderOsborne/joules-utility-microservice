@@ -1,6 +1,7 @@
 require 'bundler'
 require 'fast_jsonapi'
 require 'sinatra/base'
+require 'figaro'
 
 Bundler.require
 
