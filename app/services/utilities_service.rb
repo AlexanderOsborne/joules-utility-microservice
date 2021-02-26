@@ -1,5 +1,3 @@
-
-
 class UtilitiesService 
   def self.fetch_utilities
     data = parser(conn.get("/api/v2/files/supported_utilities_json"))
