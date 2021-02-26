@@ -2,7 +2,6 @@ require './config/environment'
 require 'sinatra/base'
 
 class UtilitiesController < Sinatra::Base
-  # set :root, File.expand_path("..", __dir__)
 
   get "/utilities" do
     utilities = UtilitiesService.fetch_utilities
