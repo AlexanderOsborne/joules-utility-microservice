@@ -22,4 +22,23 @@ RSpec.describe UtilitiesController do
       end
     end
   end
+
+  describe 'it can get all bills' do
+    it 'can get a json response' do
+      get "/bills?meter_uid=711267"
+      expect(last_response).to be_successful
+
+      bills = JSON.parse(last_response.body, symbolize_names: true)
+
+      expect(bills).to have_key(:data)
+      expect(bills[:data]).to be_an(Array)
+      bills[:data].each do |bill|
+        expect(bill).to have_key(:start_date)
+        expect(bill).to have_key(:end_date)
+        expect(bill).to have_key(:kwh)
+        expect(bill).to have_key(:meter_uid)
+        expect(bill).to have_key(:user_uid)
+      end
+    end
+  end
 end
