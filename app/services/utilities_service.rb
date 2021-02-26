@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d919323af1e968ab4af176b6ddf143c52d2cad6e
 class UtilitiesService 
   def self.fetch_utilities
     data = parser(conn.get("/api/v2/files/supported_utilities_json"))
