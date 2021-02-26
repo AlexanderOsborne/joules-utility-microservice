@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'sinatra', require: 'sinatra/base'
 gem 'shotgun'
-gem 'pry'
 gem 'fast_jsonapi'
 gem 'faraday'
 gem 'puma'
@@ -11,11 +10,13 @@ gem 'require_all'
 group :test do
   gem "rspec"
   gem "rack-test"
+  gem 'pry'
 end
 
 group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'pry'
   gem 'figaro', git: 'https://github.com/bpaquet/figaro.git', branch: 'sinatra'
 end
