@@ -1,4 +1,4 @@
-require './config/enviroment'
+require './config/environment'
 require 'sinatra/base'
 
 class UtilitiesController < Sinatra::Base
