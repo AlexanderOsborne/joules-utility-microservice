@@ -1,3 +1,4 @@
+require "./app"
 require 'rubygems'
 require 'sinatra'
 require 'bundler'
@@ -16,6 +17,7 @@ require 'poros/bill'
 
 
 
-run Sinatra::ApplicationController
+run App
+use ApplicationController
 use UtilitiesController
 use BillsController
