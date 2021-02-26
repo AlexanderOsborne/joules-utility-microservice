@@ -1,0 +1,15 @@
+language: ruby
+rbenv:
+- 2.5.3
+cache:
+- bundler
+script:
+- bundle
+deploy:
+  provider: heroku
+  api_key:
+    secure: 
+  app: joules-microservice
+  on:
+    branch: main
+  skip_cleanup: 'true'
