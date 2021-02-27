@@ -19,4 +19,24 @@ class UtilitiesController < Sinatra::Base
       status 404 
     end
   end
+
+  get "/new_user" do
+    if params[:email] && params[:utility]
+      interval = UtilitiesService.create_form(params[:email], params[:utility])
+    else
+      body JSON({"data" => "Must send customer email and utility ID"}, :encoder => :to_json, :content_type => :json)
+      status 404 
+    end
+  end
+
+  get "/get_meters" do
+    if params[:referral]
+      meters = UtilitiesService.get_meters(params[:referral])
+      body JSON({"data" => meters}, :encoder => :to_json, :content_type => :json)
+    else
+      body JSON({"data" => "Must send customer email and utility ID"}, :encoder => :to_json, :content_type => :json)
+      status 404 
+    end
+  end
+
 end
