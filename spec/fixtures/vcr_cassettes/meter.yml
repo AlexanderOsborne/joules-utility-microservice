@@ -1,0 +1,203 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://utilityapi.com/api/v2/authorizations?include=meters&referrals=186139
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer HIDE_MY_DATA
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 27 Feb 2021 19:19:55 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Expires:
+      - Sat, 27 Feb 2021 19:19:55 GMT
+      Last-Modified:
+      - Sat, 27 Feb 2021 19:19:55 GMT
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: "{\n    \"authorizations\": [\n        {\n            \"created\": \"2021-02-24T00:54:18.847108+00:00\",
+        \n            \"customer_email\": \"iandouglas@turing.io\", \n            \"customer_signature\":
+        {\n                \"full_name\": \"iandouglas@turing.io\", \n                \"ts\":
+        \"2021-02-24T00:54:18.846357+00:00\", \n                \"type\": \"text\"\n
+        \           }, \n            \"declined\": null, \n            \"expires\":
+        \"2024-02-24T00:54:18.840710+00:00\", \n            \"exports\": {\n                \"bills_combined_csv\":
+        \"https://utilityapi.com/api/v2/files/meters_bills_csv?meters=711267\", \n
+        \               \"bills_combined_screenshots_zip\": \"https://utilityapi.com/api/v2/files/meters_bills_screenshot_zip?meters=711267\",
+        \n                \"bills_zip\": \"https://utilityapi.com/api/v2/files/meters_bills_zip?meters=711267\",
+        \n                \"lineitems_combined_csv\": \"https://utilityapi.com/api/v2/files/meters_lineitems_csv?meters=711267\",
+        \n                \"meters_csv\": \"https://utilityapi.com/api/v2/files/meters_csv?accounts=185072\"\n
+        \           }, \n            \"exports_list\": [\n                {\n                    \"link\":
+        \"https://utilityapi.com/api/v2/files/meters_bills_csv?meters=711267\", \n
+        \                   \"name\": \"Bills: all meters [csv]\"\n                },
+        \n                {\n                    \"link\": \"https://utilityapi.com/api/v2/files/meters_bills_screenshot_zip?meters=711267\",
+        \n                    \"name\": \"Bills: all bills screenshots [zip]\"\n                },
+        \n                {\n                    \"link\": \"https://utilityapi.com/api/v2/files/meters_csv?accounts=185072\",
+        \n                    \"name\": \"Meters: all meters [csv]\"\n                },
+        \n                {\n                    \"link\": \"https://utilityapi.com/api/v2/files/meters_lineitems_csv?meters=711267\",
+        \n                    \"name\": \"Line items: all meters [csv]\"\n                },
+        \n                {\n                    \"link\": \"https://utilityapi.com/api/v2/files/meters_bills_zip?meters=711267\",
+        \n                    \"name\": \"Bills: all pdfs [zip]\"\n                }\n
+        \           ], \n            \"form_uid\": \"143120\", \n            \"is_archived\":
+        false, \n            \"is_declined\": false, \n            \"is_expired\":
+        false, \n            \"is_revoked\": false, \n            \"is_test\": true,
+        \n            \"meters\": {\n                \"meters\": [\n                    {\n
+        \                       \"authorization_uid\": \"185072\", \n                        \"base\":
+        {\n                            \"billing_account\": \"1234567890-0\", \n                            \"billing_address\":
+        \"123 Main St #100, Anytown, CA 94612\", \n                            \"billing_contact\":
+        \"Heather Homeowner\", \n                            \"meter_numbers\": [\n
+        \                               \"A987654321\"\n                            ],
+        \n                            \"service_address\": \"123 Main St #100, Anytown,
+        CA 94612\", \n                            \"service_class\": \"electric\",
+        \n                            \"service_identifier\": \"1234567890\", \n                            \"service_tariff\":
+        \"E1 XB Residential Service\"\n                        }, \n                        \"bill_count\":
+        13, \n                        \"bill_coverage\": [\n                            [\n
+        \                               \"2020-01-01T00:00:00.000000+00:00\", \n                                \"2021-02-01T00:00:00.000000+00:00\"\n
+        \                           ]\n                        ], \n                        \"bill_sources\":
+        [\n                            \"pdf\"\n                        ], \n                        \"blocks\":
+        [\n                            \"base\"\n                        ], \n                        \"created\":
+        \"2021-02-24T00:54:22.155249+00:00\", \n                        \"exports\":
+        {\n                            \"bill_pdf_zipped\": \"https://utilityapi.com/api/v2/files/meters_bills_zip?meters=711267\",
+        \n                            \"bills_csv\": \"https://utilityapi.com/api/v2/files/meters_bills_csv?meters=711267\",
+        \n                            \"intervals_csv\": \"https://utilityapi.com/api/v2/files/intervals_csv?meters=711267\",
+        \n                            \"intervals_xml\": \"https://utilityapi.com/api/v2/files/intervals_xml?meters=711267\",
+        \n                            \"latest_pdf\": \"https://utilityapi.com/api/v2/files/latest_pdf/711267\",
+        \n                            \"lineitems_csv\": \"https://utilityapi.com/api/v2/files/meters_lineitems_csv?meters=711267\"\n
+        \                       }, \n                        \"exports_list\": [\n
+        \                           {\n                                \"link\": \"https://utilityapi.com/api/v2/files/meters_bills_csv?meters=711267\",
+        \n                                \"name\": \"Bills: all bills [csv]\"\n                            },
+        \n                            {\n                                \"link\":
+        \"https://utilityapi.com/api/v2/files/meters_bills_zip?meters=711267\", \n
+        \                               \"name\": \"Bills: all pdfs [zip]\"\n                            },
+        \n                            {\n                                \"link\":
+        \"https://utilityapi.com/api/v2/files/latest_pdf/711267\", \n                                \"name\":
+        \"Bills: latest pdf [pdf]\"\n                            }, \n                            {\n
+        \                               \"link\": \"https://utilityapi.com/api/v2/files/intervals_csv?meters=711267\",
+        \n                                \"name\": \"Intervals: all intervals [csv]\"\n
+        \                           }, \n                            {\n                                \"link\":
+        \"https://utilityapi.com/api/v2/files/intervals_xml?meters=711267\", \n                                \"name\":
+        \"Intervals: all intervals [xml]\"\n                            }, \n                            {\n
+        \                               \"link\": \"https://utilityapi.com/api/v2/files/meters_lineitems_csv?meters=711267\",
+        \n                                \"name\": \"Line items: all bills [csv]\"\n
+        \                           }\n                        ], \n                        \"interval_count\":
+        52, \n                        \"interval_coverage\": [\n                            [\n
+        \                               \"2015-02-18T04:00:00.000000+00:00\", \n                                \"2015-02-20T08:00:00.000000+00:00\"\n
+        \                           ]\n                        ], \n                        \"interval_sources\":
+        [\n                            \"website\"\n                        ], \n
+        \                       \"is_activated\": true, \n                        \"is_archived\":
+        false, \n                        \"notes\": [\n                            {\n
+        \                               \"msg\": \"The utility accepted these credentials
+        from the utility account holder.\", \n                                \"ts\":
+        \"2021-02-27T18:42:37.531181+00:00\", \n                                \"type\":
+        \"access_valid\"\n                            }, \n                            {\n
+        \                               \"msg\": \"The utility website returned all
+        bills requested.\", \n                                \"ts\": \"2021-02-27T18:42:51.580662+00:00\",
+        \n                                \"type\": \"bills_full\"\n                            },
+        \n                            {\n                                \"msg\":
+        \"The utility website provided all intervals requested.\", \n                                \"ts\":
+        \"2021-02-27T18:42:51.583970+00:00\", \n                                \"type\":
+        \"intervals_full\"\n                            }, \n                            {\n
+        \                               \"msg\": \"All meter details were successfully
+        collected\", \n                                \"ts\": \"2021-02-24T00:54:22.155249+00:00\",
+        \n                                \"type\": \"meters_full\"\n                            }\n
+        \                       ], \n                        \"ongoing_monitoring\":
+        {\n                            \"frequency\": \"off\", \n                            \"next_prepay\":
+        null, \n                            \"next_refresh\": null, \n                            \"prepay\":
+        null\n                        }, \n                        \"status\": \"updated\",
+        \n                        \"status_message\": \"Data refreshed\", \n                        \"status_ts\":
+        \"2021-02-27T18:42:51.809793+00:00\", \n                        \"uid\": \"711267\",
+        \n                        \"user_email\": \"iandouglas@turing.io\", \n                        \"user_uid\":
+        101879, \n                        \"utility\": \"DEMO\"\n                    }\n
+        \               ], \n                \"next\": null\n            }, \n            \"nickname\":
+        null, \n            \"notes\": [\n                {\n                    \"msg\":
+        \"The utility accepted these credentials from the utility account holder.\",
+        \n                    \"ts\": \"2021-02-24T00:54:20.035494+00:00\", \n                    \"type\":
+        \"access_valid\"\n                }, \n                {\n                    \"msg\":
+        \"All meters were successfully collected.\", \n                    \"ts\":
+        \"2021-02-24T00:54:22.043616+00:00\", \n                    \"type\": \"meters_full\"\n
+        \               }\n            ], \n            \"referrals\": [\n                \"186139\"\n
+        \           ], \n            \"revoked\": null, \n            \"scope\": {\n
+        \               \"expires\": \"2024-02-24T00:54:18.840710+00:00\"\n            },
+        \n            \"status\": \"updated\", \n            \"status_message\": \"Services
+        refreshed\", \n            \"status_ts\": \"2021-02-24T00:54:28.086711+00:00\",
+        \n            \"template_uid\": \"33ae3462\", \n            \"uid\": \"185072\",
+        \n            \"user_email\": \"iandouglas@turing.io\", \n            \"user_status\":
+        \"active\", \n            \"user_uid\": \"101879\", \n            \"utility\":
+        \"DEMO\"\n        }\n    ], \n    \"next\": null\n}"
+  recorded_at: Sat, 27 Feb 2021 19:19:55 GMT
+- request:
+    method: post
+    uri: https://utilityapi.com/api/v2/meters/historical-collection
+    body:
+      encoding: UTF-8
+      string: '{"meters":["711267"]}'
+    headers:
+      Authorization:
+      - Bearer HIDE_MY_DATA
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 27 Feb 2021 19:19:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Expires:
+      - Sat, 27 Feb 2021 19:19:56 GMT
+      Last-Modified:
+      - Sat, 27 Feb 2021 19:19:56 GMT
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: "{\n    \"meters\": [\n        \"711267\"\n    ], \n    \"success\":
+        true\n}"
+  recorded_at: Sat, 27 Feb 2021 19:19:56 GMT
+recorded_with: VCR 6.0.0

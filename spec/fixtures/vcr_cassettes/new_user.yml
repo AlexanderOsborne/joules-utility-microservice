@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://utilityapi.com/api/v2/forms
+    body:
+      encoding: UTF-8
+      string: '{"customer_email":null,"utility":"ACE"}'
+    headers:
+      Authorization:
+      - Bearer HIDE_MY_DATA
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 27 Feb 2021 19:19:55 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Expires:
+      - Sat, 27 Feb 2021 19:19:55 GMT
+      Last-Modified:
+      - Sat, 27 Feb 2021 19:19:55 GMT
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: "{\n    \"authorization_uid\": null, \n    \"created\": \"2021-02-27T19:19:55.504653+00:00\",
+        \n    \"customer_email\": \"\", \n    \"disabled\": false, \n    \"is_archived\":
+        false, \n    \"scope\": {}, \n    \"template_uid\": \"33ae3462\", \n    \"uid\":
+        \"143760\", \n    \"updated\": \"2021-02-27T19:19:55.514430+00:00\", \n    \"url\":
+        \"https://utilityapi.com/authorize/iandouglas_turing?f=11014777-7efa-4aea-afac-96d032600cec\",
+        \n    \"user_email\": \"iandouglas@turing.io\", \n    \"user_uid\": \"101879\",
+        \n    \"utility\": \"ACE\"\n}"
+  recorded_at: Sat, 27 Feb 2021 19:19:55 GMT
+recorded_with: VCR 6.0.0
