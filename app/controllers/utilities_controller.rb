@@ -9,20 +9,10 @@ class UtilitiesController < Sinatra::Base
     status 200
   end
 
-  get "/bills" do
-    if params[:meter_uid]
-      result = UtilitiesService.check_status(params)
-      body JSON({"data" => result.map{|bill| {"start_date": bill.start_date, "end_date": bill.end_date, "kwh": bill.kwh, "meter_uid": bill.meter_uid, "user_uid": bill.user_uid}}}, :encoder => :to_json, :content_type => :json)
-      status 200
-    else
-      body JSON({"data" => "Must send meter_uid"}, :encoder => :to_json, :content_type => :json)
-      status 404 
-    end
-  end
-
   get "/new_user" do
     if params[:email] && params[:utility]
-      interval = UtilitiesService.create_form(params[:email], params[:utility])
+      interval = UtilitiesService.create_form(params)
+      body JSON({"data" => interval}, :encoder => :to_json, :content_type => :json )
     else
       body JSON({"data" => "Must send customer email and utility ID"}, :encoder => :to_json, :content_type => :json)
       status 404 
@@ -38,5 +28,18 @@ class UtilitiesController < Sinatra::Base
       status 404 
     end
   end
+
+  get "/bills" do
+    if params[:meter_uid]
+      bills = BillsFacade.check_the_bills(params)
+      body JSON({"data" => bills}, :encoder => :to_json, :content_type => :json)
+      status 200
+    else
+      body JSON({"data" => "Must send meter_uid"}, :encoder => :to_json, :content_type => :json)
+      status 404 
+    end
+  end
+
+
 
 end
