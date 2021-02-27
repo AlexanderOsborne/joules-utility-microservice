@@ -12,5 +12,4 @@ class Bill
     @meter_uid = data[:meter_uid]
     @user_uid = data[:authorization_uid]
   end
-
 end

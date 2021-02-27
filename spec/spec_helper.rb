@@ -16,6 +16,7 @@ ENV['RACK_ENV'] = 'test'
 require "./config/environment"
 require 'capybara/dsl'
 require 'simplecov'
+require 'webmock/rspec'
 
 SimpleCov.start
 

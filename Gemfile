@@ -8,6 +8,7 @@ gem 'puma'
 gem 'require_all'
 
 group :development, :test do
+  gem 'webmock'
   gem 'pry'
   gem 'rspec'
   gem 'capybara'
