@@ -10,7 +10,7 @@ class Bill
     @end_date = data[:base][:bill_end_date]
     @kwh = data[:base][:bill_total_kwh]
     @meter_uid = data[:meter_uid]
-    @user_id = data[:authorization_uid]
+    @user_uid = data[:authorization_uid]
   end
 
 end
