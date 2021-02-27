@@ -1,0 +1,128 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://utilityapi.com/api/v2/files/supported_utilities_json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer HIDE_MY_DATA
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 27 Feb 2021 19:14:59 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Expires:
+      - Sat, 27 Feb 2021 19:14:59 GMT
+      Last-Modified:
+      - Sat, 27 Feb 2021 19:14:59 GMT
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: "[\n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/ace\",
+        \n        \"id\": \"ACE\", \n        \"name\": \"Atlantic City Electric\",
+        \n        \"website\": \"https://www.atlanticcityelectric.com/\"\n    }, \n
+        \   {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/aepohio\",
+        \n        \"id\": \"AEPOHIO\", \n        \"name\": \"American Electric Power
+        Ohio\", \n        \"website\": \"https://www.aepohio.com/\"\n    }, \n    {\n
+        \       \"documentation\": \"https://utilityapi.com/docs/utilities/aps\",
+        \n        \"id\": \"APS\", \n        \"name\": \"Arizona Public Service Company\",
+        \n        \"website\": \"https://www.aps.com/en/residential/Pages/home.aspx\"\n
+        \   }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/austinenergy\",
+        \n        \"id\": \"AustinEnergy\", \n        \"name\": \"Austin Energy\",
+        \n        \"website\": \"https://austinenergy.com/ae/\"\n    }, \n    {\n
+        \       \"documentation\": \"https://utilityapi.com/docs/utilities/bge\",
+        \n        \"id\": \"BGE\", \n        \"name\": \"Baltimore Gas & Electric\",
+        \n        \"website\": \"https://www.bge.com/\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/comed\", \n        \"id\": \"ComEd\",
+        \n        \"name\": \"Commonwealth Edison\", \n        \"website\": \"https://www.comed.com/\"\n
+        \   }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/coned\",
+        \n        \"id\": \"ConEd\", \n        \"name\": \"Consolidated Edison New
+        York\", \n        \"website\": \"https://www.coned.com/\"\n    }, \n    {\n
+        \       \"documentation\": \"https://utilityapi.com/docs/utilities/dominion\",
+        \n        \"id\": \"DOMINION\", \n        \"name\": \"Dominion Energy\", \n
+        \       \"website\": \"\"\n    }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/evrsrc\",
+        \n        \"id\": \"EVRSRC\", \n        \"name\": \"Eversource Energy\", \n
+        \       \"website\": \"https://www.eversource.com/\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/fpl\", \n        \"id\": \"FPL\",
+        \n        \"name\": \"Florida Power and Light Company\", \n        \"website\":
+        \"\"\n    }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/heco\",
+        \n        \"id\": \"HECO\", \n        \"name\": \"Hawaii Electric\", \n        \"website\":
+        \"https://www.hawaiianelectric.com/\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/jcpl\", \n        \"id\": \"JCPL\",
+        \n        \"name\": \"Jersey Central Power and Light\", \n        \"website\":
+        \"https://www.firstenergycorp.com/content/customer/jersey_central_power_light.html\"\n
+        \   }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/ladwp\",
+        \n        \"id\": \"LADWP\", \n        \"name\": \"Los Angeles Department
+        of Water & Power\", \n        \"website\": \"https://www.ladwp.com/\"\n    },
+        \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/natgd\",
+        \n        \"id\": \"NATGD\", \n        \"name\": \"National Grid\", \n        \"website\":
+        \"https://www.nationalgridus.com/\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/nve\", \n        \"id\": \"NVE\",
+        \n        \"name\": \"Nevada Energy\", \n        \"website\": \"https://www.nvenergy.com/\"\n
+        \   }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/pacpower\",
+        \n        \"id\": \"PacPower\", \n        \"name\": \"Pacific Power Utilities\",
+        \n        \"website\": \"https://www.pacificpower.net/\"\n    }, \n    {\n
+        \       \"documentation\": \"https://utilityapi.com/docs/utilities/peco\",
+        \n        \"id\": \"PECO\", \n        \"name\": \"PECO Energy\", \n        \"website\":
+        \"https://www.peco.com/Pages/default.aspx\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/pepco\", \n        \"id\": \"PEPCO\",
+        \n        \"name\": \"Potomac Electric Power Company\", \n        \"website\":
+        \"https://www.pepco.com/\"\n    }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/pge\",
+        \n        \"id\": \"PG&E\", \n        \"name\": \"Pacific Gas and Electric\",
+        \n        \"website\": \"https://www.pge.com/\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/portge\", \n        \"id\": \"PORTGE\",
+        \n        \"name\": \"Portland General Electric\", \n        \"website\":
+        \"https://www.portlandgeneral.com/\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/ppl\", \n        \"id\": \"PPL\",
+        \n        \"name\": \"Pennsylvania Power and Light\", \n        \"website\":
+        \"https://www.pplelectric.com/\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/pseg\", \n        \"id\": \"PSEG\",
+        \n        \"name\": \"Public Services Electric and Gas\", \n        \"website\":
+        \"https://www.pseg.com/\"\n    }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/psegli\",
+        \n        \"id\": \"PSEGLI\", \n        \"name\": \"Public Services Electric
+        and Gas - Long Island\", \n        \"website\": \"https://www.psegliny.com/\"\n
+        \   }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/rmp\",
+        \n        \"id\": \"RMP\", \n        \"name\": \"Rocky Mountain Power\", \n
+        \       \"website\": \"https://www.rockymountainpower.net\"\n    }, \n    {\n
+        \       \"documentation\": \"https://utilityapi.com/docs/utilities/sce\",
+        \n        \"id\": \"SCE\", \n        \"name\": \"Southern California Edison\",
+        \n        \"website\": \"https://www.sce.com/\"\n    }, \n    {\n        \"documentation\":
+        \"https://utilityapi.com/docs/utilities/sdge\", \n        \"id\": \"SDG&E\",
+        \n        \"name\": \"San Diego Gas and Electric\", \n        \"website\":
+        \"https://www.sdge.com/\"\n    }, \n    {\n        \"documentation\": \"https://utilityapi.com/docs/utilities/sfpuc\",
+        \n        \"id\": \"SFPUC\", \n        \"name\": \"San Francisco Public Utilities
+        Commission\", \n        \"website\": \"https://sfwater.org/\"\n    }, \n    {\n
+        \       \"documentation\": \"https://utilityapi.com/docs/utilities/smud\",
+        \n        \"id\": \"SMUD\", \n        \"name\": \"Sacramento Municipal Utility
+        District\", \n        \"website\": \"https://www.smud.org/\"\n    }, \n    {\n
+        \       \"documentation\": \"https://utilityapi.com/docs/utilities/xcel\",
+        \n        \"id\": \"XCEL\", \n        \"name\": \"Xcel Energy\", \n        \"website\":
+        \"https://www.xcelenergy.com/\"\n    }\n]"
+  recorded_at: Sat, 27 Feb 2021 19:14:59 GMT
+recorded_with: VCR 6.0.0

@@ -17,6 +17,18 @@ require "./config/environment"
 require 'capybara/dsl'
 require 'simplecov'
 require 'webmock/rspec'
+require "vcr"
+
+
+VCR.configure do |c|
+  c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  c.hook_into :webmock
+  c.ignore_localhost = true
+  c.filter_sensitive_data("HIDE_MY_DATA") { ENV['UTILITY_API_KEY'] }
+  c.configure_rspec_metadata!
+  c.allow_http_connections_when_no_cassette = true
+end
+
 
 SimpleCov.start
 

@@ -7,6 +7,7 @@ RSpec.describe UtilitiesController do
   describe 'it can get all utilities' do
 
     it "can get a json response" do
+      VCR.use_cassette("utilitites_list") do
       get "/utilities"
 
       # expect(current_path).to eq("/utilities")
@@ -16,9 +17,10 @@ RSpec.describe UtilitiesController do
 
       expect(utilities).to have_key(:data)
       expect(utilities[:data]).to be_an(Array)
-      utilities[:data].each do |utility|
-        expect(utility).to have_key(:id)
-        expect(utility).to have_key(:utility_name)
+        utilities[:data].each do |utility|
+          expect(utility).to have_key(:id)
+          expect(utility).to have_key(:utility_name)
+        end
       end
     end
   end

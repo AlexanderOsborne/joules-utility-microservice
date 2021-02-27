@@ -8,6 +8,7 @@ gem 'puma'
 gem 'require_all'
 
 group :development, :test do
+  gem 'vcr'
   gem 'webmock'
   gem 'pry'
   gem 'rspec'
@@ -16,3 +17,4 @@ group :development, :test do
   gem 'simplecov'
   gem 'figaro', git: 'https://github.com/bpaquet/figaro.git', branch: 'sinatra'
 end
+
