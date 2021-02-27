@@ -15,6 +15,9 @@
 ENV['RACK_ENV'] = 'test'
 require "./config/environment"
 require 'capybara/dsl'
+require 'simplecov'
+
+SimpleCov.start
 
 Capybara.app = UtilitiesController
 
