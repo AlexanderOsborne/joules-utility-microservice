@@ -51,7 +51,7 @@ class UtilitiesService
       req.url '/api/v2/forms'
       req.body = {"customer_email": data[:customer_email], "utility": data[:utility]}.to_json
     end
-    parser(response)
+    parsed = parser(response)
     # json[:utility] needs to be passed to post_auth too
     # {"uid" => json[:uid], "utility" => json[:utility]}
   end

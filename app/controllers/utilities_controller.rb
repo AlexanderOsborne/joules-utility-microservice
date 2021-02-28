@@ -4,9 +4,13 @@ require 'sinatra/base'
 class UtilitiesController < Sinatra::Base
 
   get "/utilities" do
-    utilities = UtilitiesService.fetch_utilities
-    body JSON({"data" => utilities.map{|k| {"id": k.id, "utility_name": k.utility_name}}}, :encoder => :to_json, :content_type => :json)
-    status 200
+    begin 
+      utilities = UtilitiesService.fetch_utilities
+      body JSON({"data" => utilities.map{|k| {"id": k.id, "utility_name": k.utility_name}}}, :encoder => :to_json, :content_type => :json)
+      status 200
+    rescue
+      body JSON({"data" => "Something went wrong."})
+    end
   end
 
   get "/new_user" do
@@ -22,7 +26,8 @@ class UtilitiesController < Sinatra::Base
   get "/get_meters" do
     if params[:referral]
       meters = UtilitiesService.get_meters(params[:referral])
-      body JSON({"data" => meters}, :encoder => :to_json, :content_type => :json)
+      meter_arr = meters.map{|meter| {meter_uid: meter}}
+      body JSON({"data" => meter_arr}, :encoder => :to_json, :content_type => :json)
     else
       body JSON({"data" => "Must send customer email and utility ID"}, :encoder => :to_json, :content_type => :json)
       status 404 
@@ -39,7 +44,4 @@ class UtilitiesController < Sinatra::Base
       status 404 
     end
   end
-
-
-
 end
