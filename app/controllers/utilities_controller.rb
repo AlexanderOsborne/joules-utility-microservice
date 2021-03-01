@@ -4,12 +4,12 @@ require 'sinatra/base'
 class UtilitiesController < Sinatra::Base
 
   get "/utilities" do
-    begin 
+    begin
       utilities = UtilitiesService.fetch_utilities
       body JSON({"data" => utilities.map{|k| {"id": k.id, "utility_name": k.utility_name}}}, :encoder => :to_json, :content_type => :json)
       status 200
     rescue
-      body JSON({"data" => "Something went wrong."})
+      body JSON({"error" => "Something went wrong."})
     end
   end
 
@@ -18,8 +18,8 @@ class UtilitiesController < Sinatra::Base
       interval = UtilitiesService.create_form(params)
       body JSON({"data" => interval}, :encoder => :to_json, :content_type => :json )
     else
-      body JSON({"data" => "Must send customer email and utility ID"}, :encoder => :to_json, :content_type => :json)
-      status 404 
+      body JSON({"error" => "Must send customer email and utility ID"}, :encoder => :to_json, :content_type => :json)
+      status 404
     end
   end
 
@@ -29,8 +29,8 @@ class UtilitiesController < Sinatra::Base
       meter_arr = meters.map{|meter| {meter_uid: meter}}
       body JSON({"data" => meter_arr}, :encoder => :to_json, :content_type => :json)
     else
-      body JSON({"data" => "Must send customer email and utility ID"}, :encoder => :to_json, :content_type => :json)
-      status 404 
+      body JSON({"error" => "Must send customer email and utility ID"}, :encoder => :to_json, :content_type => :json)
+      status 404
     end
   end
 
@@ -40,8 +40,8 @@ class UtilitiesController < Sinatra::Base
       body JSON({"data" => bills}, :encoder => :to_json, :content_type => :json)
       status 200
     else
-      body JSON({"data" => "Must send meter_uid"}, :encoder => :to_json, :content_type => :json)
-      status 404 
+      body JSON({"error" => "Must send meter_uid"}, :encoder => :to_json, :content_type => :json)
+      status 404
     end
   end
 end

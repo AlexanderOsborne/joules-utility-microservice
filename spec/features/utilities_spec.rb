@@ -28,7 +28,7 @@ RSpec.describe UtilitiesController do
     it 'can get a json response' do
       VCR.use_cassette("bills") do
         get "/bills?meter_uid=711267"
-      
+
       expect(last_response).to be_successful
       bills = JSON.parse(last_response.body, symbolize_names: true)
 
@@ -47,12 +47,12 @@ RSpec.describe UtilitiesController do
     it 'can sad path for bill' do
       VCR.use_cassette("bills_sadpath") do
         get "/bills"
-      
+
       expect(last_response).to_not be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
 
-      expect(parsed).to have_key(:data)
-      expect(parsed[:data]).to eq("Must send meter_uid")
+      expect(parsed).to have_key(:error)
+      expect(parsed[:error]).to eq("Must send meter_uid")
       end
     end
   end
@@ -76,7 +76,7 @@ RSpec.describe UtilitiesController do
       expect(last_response).to_not be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
 
-      expect(parsed[:data]).to eq("Must send customer email and utility ID")
+      expect(parsed[:error]).to eq("Must send customer email and utility ID")
       end
     end
   end
@@ -100,7 +100,7 @@ RSpec.describe UtilitiesController do
       expect(last_response).to_not be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
 
-      expect(parsed[:data]).to eq("Must send customer email and utility ID")
+      expect(parsed[:error]).to eq("Must send customer email and utility ID")
       end
     end
   end
