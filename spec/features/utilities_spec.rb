@@ -8,9 +8,8 @@ RSpec.describe UtilitiesController do
   describe 'it can get all utilities' do
     it "can get a json response" do
       VCR.use_cassette("utilitites_list") do
-        get "/utilities"
+        get "/api/v1/utilities"
 
-      # expect(current_path).to eq("/utilities")
       expect(last_response).to be_successful
       utilities = JSON.parse(last_response.body, symbolize_names: true)
 
@@ -27,7 +26,7 @@ RSpec.describe UtilitiesController do
   describe 'it can get all bills' do
     it 'can get a json response' do
       VCR.use_cassette("bills") do
-        get "/bills?meter_uid=711267"
+        get "/api/v1/bills?meter_uid=711267"
 
       expect(last_response).to be_successful
       bills = JSON.parse(last_response.body, symbolize_names: true)
@@ -46,11 +45,10 @@ RSpec.describe UtilitiesController do
 
     it 'can sad path for bill' do
       VCR.use_cassette("bills_sadpath") do
-        get "/bills"
+        get "/api/v1/bills"
 
       expect(last_response).to_not be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
-
       expect(parsed).to have_key(:error)
       expect(parsed[:error]).to eq("Must send meter_uid")
       end
@@ -60,7 +58,7 @@ RSpec.describe UtilitiesController do
   describe 'it can start a new user' do
     it 'will create a new user' do
       VCR.use_cassette("new_user") do
-      get "/new_user?email=auron1731@yahoo.com&utility=ACE"
+      get "/api/v1/new_user?email=auron1731@yahoo.com&utility=ACE"
 
       expect(last_response).to be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
@@ -71,7 +69,7 @@ RSpec.describe UtilitiesController do
 
     it 'can sad path if missing params' do
       VCR.use_cassette("new_user_sad_path") do
-      get "/new_user?utility=ACE"
+      get "/api/v1/new_user?utility=ACE"
 
       expect(last_response).to_not be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
@@ -84,7 +82,7 @@ RSpec.describe UtilitiesController do
   describe 'it can get meters' do
     it 'will get meters' do
       VCR.use_cassette("meter") do
-      get "/get_meters?referral=186139"
+      get "/api/v1/get_meters?referral=186139"
 
       expect(last_response).to be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
@@ -95,7 +93,7 @@ RSpec.describe UtilitiesController do
 
     it 'can sad path if missing referral' do
       VCR.use_cassette("meter_sad_path") do
-      get "/get_meters"
+      get "/api/v1/get_meters"
 
       expect(last_response).to_not be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
@@ -104,5 +102,4 @@ RSpec.describe UtilitiesController do
       end
     end
   end
-
 end

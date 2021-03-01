@@ -3,7 +3,7 @@ require 'sinatra/base'
 
 class UtilitiesController < Sinatra::Base
 
-  get "/utilities" do
+  get "/api/v1/utilities" do
     begin
       utilities = UtilitiesService.fetch_utilities
       body JSON({"data" => utilities.map{|k| {"id": k.id, "utility_name": k.utility_name}}}, :encoder => :to_json, :content_type => :json)
@@ -13,7 +13,7 @@ class UtilitiesController < Sinatra::Base
     end
   end
 
-  get "/new_user" do
+  get "/api/v1/new_user" do
     if params[:email] && params[:utility]
       interval = UtilitiesService.create_form(params)
       body JSON({"data" => interval}, :encoder => :to_json, :content_type => :json )
@@ -23,7 +23,7 @@ class UtilitiesController < Sinatra::Base
     end
   end
 
-  get "/get_meters" do
+  get "/api/v1/get_meters" do
     if params[:referral]
       meters = UtilitiesService.get_meters(params[:referral])
       meter_arr = meters.map{|meter| {meter_uid: meter}}
@@ -34,7 +34,7 @@ class UtilitiesController < Sinatra::Base
     end
   end
 
-  get "/bills" do
+  get "/api/v1/bills" do
     if params[:meter_uid]
       bills = BillsFacade.check_the_bills(params)
       body JSON({"data" => bills}, :encoder => :to_json, :content_type => :json)
