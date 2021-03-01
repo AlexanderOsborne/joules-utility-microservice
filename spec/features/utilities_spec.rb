@@ -62,7 +62,6 @@ RSpec.describe UtilitiesController do
 
       expect(last_response).to be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
-
       expect(parsed[:data]).to have_key(:url)
       end
     end
@@ -73,7 +72,6 @@ RSpec.describe UtilitiesController do
 
       expect(last_response).to_not be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
-
       expect(parsed[:error]).to eq("Must send customer email and utility ID")
       end
     end
@@ -86,7 +84,6 @@ RSpec.describe UtilitiesController do
 
       expect(last_response).to be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
-
       expect(parsed[:data]).to be_an(Array)
       end
     end
@@ -97,7 +94,6 @@ RSpec.describe UtilitiesController do
 
       expect(last_response).to_not be_successful
       parsed = JSON.parse(last_response.body, symbolize_names: true)
-
       expect(parsed[:error]).to eq("Must send customer email and utility ID")
       end
     end
