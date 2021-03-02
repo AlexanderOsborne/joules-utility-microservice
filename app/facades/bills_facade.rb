@@ -12,13 +12,9 @@ class BillsFacade
     end
 
     def bills(meter)
-      data = UtilitiesService.get_bills(meter)
-      data[:bills].map do |bill| 
-        {"start_date": bill[:base][:bill_start_date],
-        "end_date": bill[:base][:bill_end_date],
-        "kwh": bill[:base][:bill_total_kwh], 
-        "meter_uid": bill[:meter_uid], 
-        "user_uid": bill[:authorization_uid]}
+      data = UtilitiesService.get_bills(meter)[:bills]
+      data.map do |bill|
+        Bill.new(bill)
       end
     end
 

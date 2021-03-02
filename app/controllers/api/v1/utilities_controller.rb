@@ -1,12 +1,14 @@
 require './config/environment'
+# require './app/serializers/utility_serializer'
 require 'sinatra/base'
 
 class UtilitiesController < Sinatra::Base
 
   get "/api/v1/utilities" do
     begin
+      content_type :json
       utilities = UtilitiesService.fetch_utilities
-      body JSON({"data" => utilities.map{|k| {"id": k.id, "utility_name": k.utility_name}}}, :encoder => :to_json, :content_type => :json)
+      body UtilitiesSerializer.new(utilities).serialized_json
       status 200
     rescue
       body JSON({"error" => "Something went wrong."})
@@ -35,9 +37,10 @@ class UtilitiesController < Sinatra::Base
   end
 
   get "/api/v1/bills" do
+    content_type :json
     if params[:meter_uid]
       bills = BillsFacade.check_the_bills(params)
-      body JSON({"data" => bills}, :encoder => :to_json, :content_type => :json)
+      body BillsSerializer.new(bills).serialized_json
       status 200
     else
       body JSON({"error" => "Must send meter_uid"}, :encoder => :to_json, :content_type => :json)

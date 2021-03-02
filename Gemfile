@@ -6,6 +6,7 @@ gem 'shotgun'
 gem 'faraday'
 gem 'puma'
 gem 'require_all'
+gem 'fast_jsonapi'
 
 group :development, :test do
   gem 'vcr'
