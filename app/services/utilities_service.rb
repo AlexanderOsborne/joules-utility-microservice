@@ -25,14 +25,16 @@ class UtilitiesService
 
   def self.poll_meter(meter_uid)
     response = conn.get do |req|
-      req.url "/api/v2/meters/#{meter_uid}"
+      req.url "/api/v2/meters"
+      req.params["meters"] = meter_uid
     end
     parser(response)
   end
 
   def self.get_bills(meter_uid)
     response = conn.get do |req|
-      req.url "/api/v2/bills?meters=#{meter_uid}"
+      req.url "/api/v2/bills"
+      req.params["meters"] = meter_uid
     end
 
     JSON.parse(response.body, symbolize_names: true)
@@ -52,7 +54,8 @@ class UtilitiesService
 
   def self.get_auth_and_meters(ref)
     response = conn.get do |req|
-      req.url "/api/v2/authorizations?referrals=#{ref}&include=meters"
+      req.url "/api/v2/authorizations?&include=meters"
+      req.params['referrals'] = ref
     end
 
     json = parser(response)
