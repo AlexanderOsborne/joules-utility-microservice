@@ -53,6 +53,7 @@ This application provides API endpoints for our Jules-API to consume, and fetche
 ### Built With
 
 * [Ruby](https://www.ruby-lang.org/en/)
+* [Sinatra](http://sinatrarb.com/)
 * [RSpec](https://github.com/rspec/rspec-rails)
 
 <!-- GETTING STARTED -->
