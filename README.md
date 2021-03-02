@@ -28,7 +28,6 @@ This project is deployed on:
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
-        <li><a href="#schema">Schema</a></li>
       </ul>
     </li>
     <li>
@@ -71,6 +70,12 @@ This application provides API endpoints for our Jules-API to consume, and fetche
    bundle install
    ```
    ```
+3. Get your API key, you can request a demo [here](https://utilityapi.com/products#api)
+
+4. Set API key with 
+    ````
+    export UTILITY_API_KEY='Your Key Here'
+    ````
 
 <!-- CONTRIBUTING -->
 ## Contributing
