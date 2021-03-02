@@ -70,7 +70,6 @@ This application provides API endpoints for our Jules-API to consume, and fetche
    ```
    bundle install
    ```
-   ```
 3. Get your API key, you can request a demo [here](https://utilityapi.com/products#api)
 
 4. Set API key with 
