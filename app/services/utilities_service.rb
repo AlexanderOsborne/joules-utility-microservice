@@ -1,15 +1,11 @@
-class UtilitiesService
+class UtilitiesService 
   def self.fetch_utilities
     data = parser(conn.get("/api/v2/files/supported_utilities_json"))
     utilities = data.map {|utility| Utility.new(utility)}
   end
 
   def self.create_form(data)
-    response = conn.post do |req|
-      req.url '/api/v2/forms'
-      req.body = {"customer_email": data[:customer_email], "utility": data[:utility]}.to_json
-    end
-    parsed = parser(response)
+    post_form(data)
   end
 
   def self.get_meters(referral)
@@ -32,9 +28,10 @@ class UtilitiesService
 
   def self.get_bills(meter_uid)
     response = conn.get do |req|
-      req.url "/api/v2/bills?meters=#{meter_uid}"
+      req.url "/api/v2/bills"
+      req.params['meters'] = meter_uid
     end
-
+    
     JSON.parse(response.body, symbolize_names: true)
   end
 
@@ -49,7 +46,15 @@ class UtilitiesService
   def self.parser(response)
     JSON.parse(response.body, symbolize_names: true)
   end
-
+  
+  def self.post_form(data)
+    response = conn.post do |req|
+      req.url '/api/v2/forms'
+      req.body = {"customer_email": data[:customer_email], "utility": data[:utility]}.to_json
+    end
+    parsed = parser(response)
+  end
+  
   def self.get_auth_and_meters(ref)
     response = conn.get do |req|
       req.url "/api/v2/authorizations?referrals=#{ref}&include=meters"
@@ -62,8 +67,24 @@ class UtilitiesService
   def self.post_activate_meters(meter_arr)
     response = conn.post do |req|
       req.url "/api/v2/meters/historical-collection"
-      req.body = {"meters": meter_arr}.to_json
+      req.body = {"meters": meter_arr}.to_json 
     end
     parser(response)
   end
+
+  # def self.request_auth(data)
+  #   response = conn.get do |req|
+  #     req.url '/api/authorize/iandouglas_turing'
+  #     req.body = {"customer_email": data[:customer_email], "utility": data[:utility]}.to_json
+  #   end
+  #   parser(response)
+  # end
+
+  # def self.post_auth(uid, utility = "DEMO")
+  #   response = conn.post do |req|
+  #     req.url "/api/v2/forms/#{ uid }"
+  #     req.body = {"utility": utility, "scenario": "residential"}.to_json
+  #   end
+  #   parser(response)
+  # end
 end
