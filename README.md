@@ -83,7 +83,7 @@ This application provides API endpoints for our Jules-API to consume, and fetche
 <!-- Endpoints -->
  ### Endpoints
  
- 1. Utilities
+1. Utilities
    ```
    get "/api/v1/utilities"
    ```
@@ -93,16 +93,16 @@ This application provides API endpoints for our Jules-API to consume, and fetche
    ["{\"data\":[{\"id\":\"ACE\",\"utility_name\":\"Atlantic City Electric\"},   {\"id\":\"AEPOHIO\",\"utility_name\":\"American Electric Power Ohio\"},{\"id\":\"APS\",\"utility_name\":\"Arizona Public Service Company\"},{\"id\":\"AustinEnergy\"}"]
    ```
    
- 2. New User
+2. New User
    ```
    get "/api/v1/new_user"
    ```
    
    This request must include an email and utility param. It will verify a user and return a referral code that allows meters activation.
-  
+   ```
     {\"data\":{\"authorization_uid\":null,\"created\":\"2021-02-    27T19:19:55.504653+00:00\",\"customer_email\":\"\",\"disabled\":false,\"is_archived\":false,\"scope\":{},\"template_uid\":\"33ae3462\",\"uid\":\"222222\",\"updated\":\"2021-02-27T19:19:55.514430+00:00\",\"url\":\"https://utilityapi.com/authorize/customername?f=11014777-7efa-4aea-afac-96d032600cec\",\"user_email\":\"user@turing.io\",\"user_uid\":\"12121\",\"utility\":\"ACE\"}}"
    
- 3. Meters
+3. Meters
    ```
    get "/api/v1/get_meters"
    ```
@@ -113,9 +113,9 @@ This application provides API endpoints for our Jules-API to consume, and fetche
    "{\"data\":[{\"meter_uid\":\"711267\"}]}"
    ```
     
- 4. Bills
+4. Bills
     ```
-     get "/api/v1/bills"
+    get "/api/v1/bills"
     ```
    
    This request must include a meter_uid param. This param allows bill retrieval in the following format.
