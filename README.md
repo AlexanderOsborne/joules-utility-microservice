@@ -154,7 +154,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - Aiden Mendez - [Github](https://github.com/aidenmendez) [LinkedIn](https://www.linkedin.com/in/aiden-mendez/)
 - Catherine Dean - [Github](https://github.com/catherinemdean15) [LinkedIn](https://www.linkedin.com/in/catherine-dean-57a92030/)
 - James Fox-Collis - [Github](https://github.com/jlfoxcollis) [LinkedIn](https://www.linkedin.com/in/james-fox-collis/)
-- Robert Heath - [Github](https://github.com/kaiheiongaku) [LinkedIn](https://www.linkedin.com/in/robert-heath-305bb34b/)
+- Robert Heath - [Github](https://github.com/kaiheiongaku) [LinkedIn](https://www.linkedin.com/in/robert-heath-ii/)
 - Joe Jiang - [Github](https://github.com/ninesky00) [LinkedIn](https://www.linkedin.com/in/joe-jiang01/)
 
 
