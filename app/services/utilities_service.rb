@@ -56,8 +56,9 @@ class UtilitiesService
   end
   
   def self.get_auth_and_meters(ref)
-    response = conn.get do |req|
-      req.url "/api/v2/authorizations?referrals=#{ref}&include=meters"
+    response = conn.get("/api/v2/authorizations") do |req|
+      req.params[:referrals] = ref
+      req.params[:include] = :meters
     end
 
     json = parser(response)
@@ -71,20 +72,4 @@ class UtilitiesService
     end
     parser(response)
   end
-
-  # def self.request_auth(data)
-  #   response = conn.get do |req|
-  #     req.url '/api/authorize/iandouglas_turing'
-  #     req.body = {"customer_email": data[:customer_email], "utility": data[:utility]}.to_json
-  #   end
-  #   parser(response)
-  # end
-
-  # def self.post_auth(uid, utility = "DEMO")
-  #   response = conn.post do |req|
-  #     req.url "/api/v2/forms/#{ uid }"
-  #     req.body = {"utility": utility, "scenario": "residential"}.to_json
-  #   end
-  #   parser(response)
-  # end
 end
