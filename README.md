@@ -58,6 +58,7 @@ This application provides API endpoints for our Jules-API to consume, and fetche
 * [Ruby](https://www.ruby-lang.org/en/)
 * [Sinatra](http://sinatrarb.com/)
 * [RSpec](https://github.com/rspec/rspec-rails)
+* [UtilityAPI](https://utilityapi.com/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -82,6 +83,8 @@ This application provides API endpoints for our Jules-API to consume, and fetche
 
 <!-- Endpoints -->
  ### Endpoints
+
+A Postman collection can be imported [here](https://www.postman.com/collections/20d5baf623e611679c92) to test endpoints directly from the UtliityAPI.
  
 1. Utilities
    ```
